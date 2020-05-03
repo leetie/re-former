@@ -1,0 +1,46 @@
+<h1>Hello! We're doing forms :-) </h1>
+<% @user.errors.full_messages.each do |msg| %>
+  <%= msg %><br>
+<% end %>
+<%#<form action="/users" method="post" accept-charset="UTF-8" autocomplete="off">
+<%#<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %> <%#">%>
+
+<%#  <label for="username">Username:</lable>
+<%#    <input type="text" id="username" name="user[username]">
+<%#  <label for="email">Email:</label>
+<%#    <input type="text" id="email" name="user[email]">
+<%#  <label for="password">Password:</label>
+<%#    <input type="password" id="password" name="user[password]">
+    
+<%#  <input type="submit" value="Submit">
+  
+<%#</form> %>
+<h3>Chad form_for(@your_instance_variable) form</h3>
+<%= form_for(@user) do |f| %>
+  <%= f.label(:username) %>
+  <%= f.text_field(:username, value: "Your username here big boy")%>
+
+  <%= f.label(:email) %>
+  <%= f.text_field(:email, value: "example@example.com") %>
+
+  <%= f.label(:password) %>
+  <%= f.password_field(:password) %>
+
+  <%= f.submit %>
+
+<% end %>
+<br>
+<br>
+<br>
+
+<h3>Virgin form_tag form</h3><br>
+<%= form_tag(url_for('/users'))%>
+<%= label(:user, :username)%>
+<%= text_field(:user, :username) %>
+<br>
+<%= label(:user, :password) %>
+<%= password_field(:user, :password)%>
+<br>
+<%= label(:user, :email) %>
+<%= text_field(:user, :email) %>
+<%= submit_tag %>
